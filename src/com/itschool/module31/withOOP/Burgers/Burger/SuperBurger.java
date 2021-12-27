@@ -7,3 +7,4 @@ public class SuperBurger extends Burger {
         type = BurgerType.SUPER;
     }
 }
+

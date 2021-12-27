@@ -1,6 +1,10 @@
-package com.itschool.module31.withOOP.Burgers;
+package com.itschool.module31.withOOP.Burgers.Burger;
 
 import com.itschool.module31.withOOP.Burgers.Burger.*;
+import com.itschool.module31.withOOP.Burgers.Dish;
+import com.itschool.module31.withOOP.Burgers.Order;
+import com.itschool.module31.withOOP.Burgers.OrderReader;
+import com.itschool.module31.withOOP.Burgers.OrderType;
 import com.itschool.module31.withOOP.Burgers.Products.*;
 
 import java.util.Scanner;
@@ -25,12 +29,11 @@ public class ConsoleBurgerReader implements OrderReader {
     private Order burgerRead() {
         Burger b = readBurgerType(scanner);
         Product[] components = readComponentBurger(b);
-        Order o = new Order(OrderType.BURGER, new Dish[]{b}, components);
-        return o;
+        return new Order(OrderType.BURGER, new Dish[]{b}, components);
     }
 
     private Product[] readComponentBurger(Burger b) {
-        Product component[] = new Product[b.getScheme().length];
+        Product[] component = new Product[b.getScheme().length];
         component[0] = readBread(b);
         component[1] = readMeat(b);
         if (b instanceof CommonBurger) component[2] = readSalad(b);
